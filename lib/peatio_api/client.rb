@@ -52,8 +52,8 @@ module PeatioAPI
       http.open_timeout = @timeout
       http.use_ssl = true if @endpoint.start_with?('https://')
 
-      http.start do |http|
-        parse yield(http, params)
+      http.start do |server|
+        parse yield(server, params)
       end
     end
 
